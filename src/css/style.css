@@ -16,6 +16,10 @@
   -webkit-text-size-adjust: 100%;
 }
 
+.output {
+  font-size: 24px;
+}
+
 section {
   padding: 50px;
 }
@@ -114,7 +118,6 @@ left: 15%;
 }
 
 .box{
-    
   display: flex;
   align-items: center;
   justify-content: center;
