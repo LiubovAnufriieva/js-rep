@@ -14,21 +14,24 @@ const refs = {
 refs.input.addEventListener('input', onInputChange);
 refs.licenseCheckbox.addEventListener('change', onLicenseChange);
 
-function onInputFocus() {
-    console.log('Input got focus - event focus');
-}
+// function onInputFocus() {
+//     console.log('Input got focus - event focus');
+// }
 
-function onInputBlur() {
-    console.log('Input lost focus - event blur');
-}
+// function onInputBlur() {
+//     console.log('Input lost focus - event blur');
+// }
 
 function onInputChange(event) {
-    console.log(event.currentTarget.value);
+    // console.log(event.currentTarget.value);
     refs.nameLabel.textContent = event.currentTarget.value;
 }
 
 function onLicenseChange(event) {
-    console.log(event.currentTarget.checked);
-    console.log('refs.btn.disabled:', refs.btn.disabled);
+    // console.log(event.currentTarget.checked);
+    // console.log('refs.btn.disabled:', refs.btn.disabled);
     refs.btn.disabled = !event.currentTarget.checked;
+    refs.btn.style.backgroundColor = "aquamarine";
+    refs.btn.style.borderColor = "grey";
+
 }
