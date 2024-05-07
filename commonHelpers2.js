@@ -1,0 +1,2 @@
+import"./assets/modulepreload-polyfill-3cfb730f.js";const e={input:document.querySelector(".js-input"),nameLabel:document.querySelector(".js-button > span"),licenseCheckbox:document.querySelector(".js-license"),btn:document.querySelector(".js-button")};e.input.addEventListener("input",t);e.licenseCheckbox.addEventListener("change",o);function t(n){e.nameLabel.textContent=n.currentTarget.value}function o(n){e.btn.disabled=!n.currentTarget.checked,e.btn.style.backgroundColor="aquamarine",e.btn.style.borderColor="grey"}
+//# sourceMappingURL=commonHelpers2.js.map
