@@ -7,7 +7,7 @@ const refs = {
     clearBtn: document.querySelector('.js-clear'),
 };
 
-window.addEventListener('keydown', onKeypress);
+window.addEventListener('keypress', onKeypress);
 refs.clearBtn.addEventListener('click', onClearOutput);
 
 function onKeypress(event) {
