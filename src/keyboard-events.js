@@ -1,3 +1,4 @@
+import 'modern-normalize';
 //Event types: keypress, keydown, keyup
 // The limits of keypress
 // Properties of KeyboardEvent.key and KeyboardEvent.code
