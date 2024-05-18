@@ -5,6 +5,7 @@ import { PER_PAGE } from './config';
 
 // Import styles
 import '../css/style.css';
+import './news-styles.css';
 import 'izitoast/dist/css/iziToast.min.css';
 
 // Refs from page

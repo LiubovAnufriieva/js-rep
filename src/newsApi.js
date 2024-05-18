@@ -21,6 +21,7 @@ import SimpleLightbox from "simplelightbox";
 const refs = {
     searchForm: document.querySelector('.js-search-form'),
     articlesContainer: document.querySelector('.js-articles-container'),
+    searchBtn: document.querySelector('.search-btn'),
   };
   const loadMoreBtn = new LoadMoreBtn({
     selector: '[data-action="load-more"]',
@@ -30,6 +31,7 @@ const refs = {
   
   refs.searchForm.addEventListener('submit', onSearch);
   loadMoreBtn.refs.button.addEventListener('click', fetchArticles);
+  
 
   function onSearch(e) {
     e.preventDefault();
@@ -39,11 +41,12 @@ const refs = {
     if (newsApiService.query === '') {
     return alert('Put your search query!');
   }
-
+ 
   loadMoreBtn.show();
   newsApiService.resetPage();
   clearArticlesContainer();
   fetchArticles();
+  refs.searchBtn.disabled = true;
 }
 
 function fetchArticles() {
@@ -55,6 +58,7 @@ function fetchArticles() {
 }
 
 function appendArticlesMarkup(articles) {
+  
   const markup = articles
     .map(
       ({ url, urlToImage, title, author, description }) => `
