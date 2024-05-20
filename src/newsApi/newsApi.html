@@ -5,15 +5,15 @@
 
     <title>NEWSAPI SERVICE</title>
 
-    <link rel="stylesheet" href="./css/style.css" />
-    <link rel="stylesheet" href="./css/news-api.css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="./news-api.css" />
 
 </head>
 
 <body>
     <section>
         <div class="newsApi-div">
-            <a class="link-main" href="./index.html">Go to home</a>
+            <a class="link-main" href="../index.html">Go to home</a>
         </div>
         <div class="form-container">
             <form class="search-form js-search-form">
@@ -24,6 +24,7 @@
                 </div>
                 <button type="submit" class="btn search-btn">Search</button>
             </form>
+            <div class="loader hidden" id="loader"></div>
             <div class="gallery-div">
                 <ul class="articles js-articles-container"></ul>
             </div>
@@ -36,7 +37,7 @@
     </section>
 
     <script type="module" src="./newsApi.js"></script>
-    <script type="module" src="./js/load-more-btn.js"></script>
+    <!-- <script type="module" src="./load-more-btn.js"></script> -->
 </body>
 
 </html>

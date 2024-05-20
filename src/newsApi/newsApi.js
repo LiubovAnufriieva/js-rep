@@ -11,18 +11,27 @@
  * 4330ebfabc654a6992c2aa792f3173a3
  * http://newsapi.org/v2/everything?q=cat&language=en&pageSize=5&page=1
  */
-
-import './css/style.css';
-import './css/news-api.css';
-import NewsApiService from './js/news-service';
-import LoadMoreBtn from './js/load-more-btn';
+import iziToast from 'izitoast';
+import 'izitoast/dist/css/iziToast.min.css';
+// import '../css/style.css';
+// import './news-api.css';
+import NewsApiService from './news-service';
+import LoadMoreBtn from './load-more-btn';
 import SimpleLightbox from "simplelightbox";
 
 const refs = {
     searchForm: document.querySelector('.js-search-form'),
     articlesContainer: document.querySelector('.js-articles-container'),
     searchBtn: document.querySelector('.search-btn'),
+    loader: document.querySelector('.loader'),
   };
+
+  function loaderShow() {
+    loader.classList.remove('hidden');
+} 
+function loaderHidden() {
+  loader.classList.add('hidden');
+} 
   const loadMoreBtn = new LoadMoreBtn({
     selector: '[data-action="load-more"]',
     hidden: true,
@@ -35,13 +44,22 @@ const refs = {
 
   function onSearch(e) {
     e.preventDefault();
-  
+    
     newsApiService.query = e.currentTarget.elements.query.value;
   
-    if (newsApiService.query === '') {
-    return alert('Put your search query!');
+  //   if (newsApiService.query === '') {
+  //   return alert('Put your search query!');
+  // }
+  if (newsApiService.query === '') {
+    return iziToast.warning({
+      title: '',
+      position: 'topCenter',
+      message: 'The field can not be empty!!!',
+      timeout: 3000,
+      pauseOnHover: false,
+    });
   }
- 
+  loaderShow();
   loadMoreBtn.show();
   newsApiService.resetPage();
   clearArticlesContainer();
@@ -53,6 +71,7 @@ function fetchArticles() {
   loadMoreBtn.disable();
   newsApiService.fetchArticles().then(articles => {
     appendArticlesMarkup(articles);
+    loaderHidden();
     loadMoreBtn.enable();
   });
 }

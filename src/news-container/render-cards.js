@@ -3,7 +3,7 @@ import {truncate } from './helpers';
 export const renderCardsMarkup = articles => {
     return articles.reduce((markup, article) => {
         return (markup += `
-        <article class="card g-col-4 ">
+        <article class="card">
         <img
           class="card-img-top"
           src=${article.urlToImage || './public/placeholder.png'}
